@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__ . '/config.php';
 
-$fb = new Facebook\Facebook([
+$fb = new \Facebook\Facebook([
   'app_id' => FB_APP_ID, // Replace {app-id} with your app id
   'app_secret' => FB_APP_SECRET,
   'default_graph_version' => 'v2.2',
