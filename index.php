@@ -19,7 +19,7 @@ if(isset($_SESSION['fb_access_token'])){
 
     try {
   // Returns a `Facebook\FacebookResponse` object
-  $response = $fb->get('/me?fields=id,name', $token);
+  $response = $fb->get('/me?fields=id,name,picture', $token);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   echo 'Graph returned an error: ' . $e->getMessage();
   exit;
@@ -29,8 +29,7 @@ if(isset($_SESSION['fb_access_token'])){
 }
 
 $user = $response->getGraphUser();
-$uid = $user->getId();
-echo '<img src="https://graph.facebook.com/'.$uid.'/picture?type=large">';
+echo '<img src="https://graph.facebook.com/me/picture?type=large">';
 echo 'Name: ' . $user->getName();
 }else {
     echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
