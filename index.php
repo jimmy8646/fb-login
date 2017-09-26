@@ -29,7 +29,8 @@ if(isset($_SESSION['fb_access_token'])){
 }
 
 $user = $response->getGraphUser();
-
+$uid = $user->getId();
+echo '<img src="https://graph.facebook.com/'.$uid.'/picture?type=large">';
 echo 'Name: ' . $user->getName();
 }else {
     echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
