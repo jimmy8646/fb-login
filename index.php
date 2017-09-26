@@ -10,10 +10,6 @@ $fb = new \Facebook\Facebook([
   //'default_access_token' => '{access-token}', // optional
 ]);
 $helper = $fb->getRedirectLoginHelper();
-$accessToken = $helper->getAccessToken();
-
-// var_dump($helper);
-$helper = $fb->getRedirectLoginHelper();
 
 $permissions = ['email']; // Optional permissions
 $loginUrl = $helper->getLoginUrl('http://'.$_SERVER['HTTP_HOST'].'/fb-callback.php', $permissions);
