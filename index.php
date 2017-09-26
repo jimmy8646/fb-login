@@ -14,5 +14,10 @@ $helper = $fb->getRedirectLoginHelper();
 $permissions = ['email']; // Optional permissions
 $loginUrl = $helper->getLoginUrl('http://'.$_SERVER['HTTP_HOST'].'/fb-callback.php', $permissions);
 
-echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
+if($_SESSION['fb_access_token']){
+    echo $_SESSION['fb_access_token'];
+}else {
+    echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
+}
+
 ?>
